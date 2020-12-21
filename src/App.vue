@@ -1,24 +1,21 @@
 <template>
   <v-app>
-    <Navbar />
-
-
-    <v-main>
-      <HelloWorld />
-    </v-main>
-  </v-app>
+    <Navbar></Navbar>
+    <Footer/>
+    </v-app>
 </template>
 
 <script>
-import HelloWorld from "./components/HelloWorld";
+
 import Navbar from "./views/layout/Navbar"
+import Footer from "./views/layout/Footer"
 
 export default {
   name: "App",
 
   components: {
-    HelloWorld,
-    Navbar
+    Navbar,
+    Footer
   },
 
   data: () => ({

@@ -1,8 +1,6 @@
 <template>
   <v-app>
-    <v-container class="">
-    Hello
-    </v-container>
+    hello
   </v-app>
 </template>
 

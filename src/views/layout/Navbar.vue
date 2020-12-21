@@ -22,9 +22,11 @@
         class="hidden-sm-and-down pl-10 ml-4"
       />
       <v-spacer />
-      <v-btn icon>
-        <v-icon>mdi-account-circle</v-icon>
-      </v-btn>
+
+      <router-link class="nav-item nav-link" :to="{ name: 'Login' }">
+        <v-btn icon> <v-icon>mdi-account-circle</v-icon></v-btn>
+      </router-link>
+
       <v-btn v-on="on" icon>
         <v-badge content="" value="" color="green" overlap>
           <v-icon>mdi-bell</v-icon>
@@ -48,13 +50,13 @@
             </v-btn>
           </template>
           <v-card class="mx-auto" max-width="344" outlined>
-            <v-list-item
+            <router-link
+              :to="{ name: 'Shop' }"
               v-for="(item, index) in items"
               :key="index"
-              href="/shop"
             >
               <v-list-item-title>{{ item.title }}</v-list-item-title>
-            </v-list-item>
+            </router-link>
           </v-card>
         </v-menu>
         <a href="/product" class="v-btn">
@@ -66,41 +68,6 @@
       </v-bottom-navigation>
     </v-content>
     <router-view />
-    <v-footer :padless="true">
-      <v-card flat tile width="100%" class="secondary white--text text-center">
-        <v-card-text>
-          <v-btn class="mx-4 white--text" icon>
-            <v-icon size="24px">mdi-home</v-icon>
-          </v-btn>
-          <v-btn class="mx-4 white--text" icon>
-            <v-icon size="24px">mdi-email</v-icon>
-          </v-btn>
-          <v-btn class="mx-4 white--text" icon>
-            <v-icon size="24px">mdi-calendar</v-icon>
-          </v-btn>
-          <v-btn class="mx-4 white--text" icon>
-            <v-icon size="24px">mdi-delete</v-icon>
-          </v-btn>
-        </v-card-text>
-
-        <v-card-text class="white--text pt-0">
-          Phasellus feugiat arcu sapien, et iaculis ipsum elementum sit amet.
-          Mauris cursus commodo interdum. Praesent ut risus eget metus luctus
-          accumsan id ultrices nunc. Sed at orci sed massa consectetur dignissim
-          a sit amet dui. Duis commodo vitae velit et faucibus. Morbi vehicula
-          lacinia malesuada. Nulla placerat augue vel ipsum ultrices, cursus
-          iaculis dui sollicitudin. Vestibulum eu ipsum vel diam elementum
-          tempor vel ut orci. Orci varius natoque penatibus et magnis dis
-          parturient montes, nascetur ridiculus mus.
-        </v-card-text>
-
-        <v-divider></v-divider>
-
-        <v-card-text class="white--text">
-          {{ new Date().getFullYear() }} — <strong>ShipIT</strong>
-        </v-card-text>
-      </v-card>
-    </v-footer>
   </v-app>
 </template>
 <script>
