@@ -3,14 +3,14 @@
     <v-app-bar
       :clipped-left="$vuetify.breakpoint.lgAndUp"
       app
-      color="success"
+      color="grey darken-4"
       dark
     >
       <!--      <v-app-bar-nav-icon @click.stop="drawer = !drawer" />-->
 
       <v-toolbar-title style="width: 350px">
         <a href="/" class="white--text" style="text-decoration: none"
-          ><v-icon>mdi-truck</v-icon>&nbsp;Shop</a
+          ><v-icon>mdi-truck</v-icon>&nbsp;SHOWTIME</a
         >
       </v-toolbar-title>
       <v-text-field
@@ -23,17 +23,21 @@
       />
       <v-spacer />
 
-      <router-link class="nav-item nav-link" :to="{ name: 'Login' }">
+      <router-link
+        style="text-decoration: none;"
+        class="nav-item nav-link"
+        :to="{ name: 'Login' }"
+      >
         <v-btn icon> <v-icon>mdi-account-circle</v-icon></v-btn>
       </router-link>
 
       <v-btn v-on="on" icon>
-        <v-badge content="" value="" color="green" overlap>
+        <v-badge content="2" value="2" color="orange" overlap>
           <v-icon>mdi-bell</v-icon>
         </v-badge>
       </v-btn>
       <v-btn v-on="on" href="/cart" icon>
-        <v-badge content="" value="" color="green" overlap>
+        <v-badge content="" value="" color="orange" overlap>
           <v-icon>mdi-cart</v-icon>
         </v-badge>
       </v-btn>
@@ -46,24 +50,25 @@
         <v-menu open-on-hover offset-y>
           <template v-slot:activator="{ on }">
             <v-btn v-on="on">
-              <span>Shop</span>
+              <span>Réservation</span>
             </v-btn>
           </template>
           <v-card class="mx-auto" max-width="344" outlined>
-            <router-link
-              :to="{ name: 'Shop' }"
-              v-for="(item, index) in items"
-              :key="index"
-            >
-              <v-list-item-title>{{ item.title }}</v-list-item-title>
-            </router-link>
+            <v-list-item v-for="(item, index) in items" :key="index"
+              ><router-link
+                class="orange--text"
+                style="text-decoration: none;"
+                :to="{ name: 'Shop' }"
+                >{{ item.title }}</router-link
+              >
+            </v-list-item>
           </v-card>
         </v-menu>
         <a href="/product" class="v-btn">
           <span>Product</span>
         </a>
-        <v-btn href="/blog">
-          <span>Blog</span>
+        <v-btn>
+          <span>Contact</span>
         </v-btn>
       </v-bottom-navigation>
     </v-content>
@@ -75,11 +80,11 @@ export default {
   data() {
     return {
       items: [
-        { title: "Concert" },
+        { title: "Spectacles" },
+        /*   { title: "" },
         { title: "" },
         { title: "" },
-        { title: "" },
-        { title: "" },
+        { title: "" }, */
       ],
       activeBtn: 1,
     };

@@ -2,17 +2,16 @@
   <div id="app">
     <v-app>
       <v-dialog v-model="dialog" persistent max-width="600px" min-width="360px">
-        <router-link :to="{ name: 'Home' }">x</router-link>
         <div>
           <v-tabs
             v-model="tab"
             show-arrows
-            background-color="deep-purple accent-4"
+            background-color="orange darken-2"
             icons-and-text
             dark
             grow
           >
-            <v-tabs-slider color="purple darken-4"></v-tabs-slider>
+            <v-tabs-slider color="grey darken-4"></v-tabs-slider>
             <v-tab v-for="i in tabs" :key="i">
               <v-icon large>{{ i.icon }}</v-icon>
               <div class="caption py-1">{{ i.name }}</div>
@@ -43,7 +42,18 @@
                           @click:append="show1 = !show1"
                         ></v-text-field>
                       </v-col>
-                      <v-col class="d-flex" cols="12" sm="6" xsm="12"> </v-col>
+                      <v-col class="d-flex" cols="12" sm="6" xsm="12">
+                        <v-btn x-large block color="error">
+                          <router-link
+                            class="white--text"
+                            style="text-decoration: none"
+                            :to="{ name: 'Home' }"
+                          >
+                            <v-icon dark left> mdi-arrow-left </v-icon
+                            >Back</router-link
+                          >
+                        </v-btn>
+                      </v-col>
                       <v-spacer></v-spacer>
                       <v-col class="d-flex" cols="12" sm="3" xsm="12" align-end>
                         <v-btn
@@ -119,6 +129,18 @@
                         ></v-text-field>
                       </v-col>
                       <v-spacer></v-spacer>
+                      <v-col class="d-flex" cols="12" sm="6" xsm="12">
+                        <v-btn x-large block color="error">
+                          <router-link
+                            class="white--text"
+                            style="text-decoration: none"
+                            :to="{ name: 'Home' }"
+                          >
+                            <v-icon dark left> mdi-arrow-left </v-icon
+                            >Back</router-link
+                          >
+                        </v-btn>
+                      </v-col>
                       <v-col class="d-flex ml-auto" cols="12" sm="3" xsm="12">
                         <v-btn
                           x-large
@@ -142,6 +164,7 @@
 </template>
 
 <script>
+/* eslint-disable */
 export default {
   computed: {
     passwordMatch() {
@@ -195,5 +218,4 @@ export default {
 };
 </script>
 
-<style>
-</style>
+<style></style>

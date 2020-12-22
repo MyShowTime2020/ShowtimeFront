@@ -1,6 +1,8 @@
 <template>
   <v-app>
-    <v-container class="pb-12">
+    <v-container class="pt-12">
+    </v-container>
+    <v-container>
       <div class="row">
         <div class="col-md-3 col-sm-3 col-xs-12">
           <v-card outlined>
@@ -17,58 +19,88 @@
                 dense
               ></v-treeview>
             </template>
+            <v-card-title class="pb-0">Customer Rating</v-card-title>
+            <v-container class="pt-0" fluid>
+              <v-checkbox
+                append-icon="mdi-star"
+                label="4 & above"
+                hide-details
+                dense
+              ></v-checkbox>
+              <v-checkbox
+                append-icon="mdi-star"
+                label="3 & above"
+                hide-details
+                dense
+              ></v-checkbox>
+              <v-checkbox
+                append-icon="mdi-star"
+                label="2 & above"
+                hide-details
+                dense
+              ></v-checkbox>
+              <v-checkbox
+                append-icon="mdi-star"
+                label="1 & above"
+                hide-details
+                dense
+              ></v-checkbox>
+            </v-container>
           </v-card>
         </div>
         <div class="col-md-9 col-sm-9 col-xs-12">
-          <v-row dense>
-            <v-col cols="12" sm="4">
-              <v-select
-                class="pa-0"
-                v-model="select"
-                :items="options"
-                style="margin-bottom: -20px"
-                outlined
-                dense
-              ></v-select>
-            </v-col>
-          </v-row>
-
-          <v-divider></v-divider>
-
           <div class="row text-center">
             <div
               class="col-md-3 col-sm-6 col-xs-12"
-              :key="pro.id"
-              v-for="pro in products"
+              v-for="product in products"
+              :key="product.id"
             >
               <v-hover v-slot:default="{ hover }">
                 <v-card class="mx-auto" color="grey lighten-4" max-width="600">
                   <v-img
                     class="white--text align-end"
                     :aspect-ratio="16 / 9"
-                    height="200px"
-                    :src="pro.src"
+                    height="400px"
+                 
+                    src="https://media.senscritique.com/media/000006825150/source_big/Tout_sur_Jamel.jpg"
                   >
-                    <v-card-title>{{ pro.type }} </v-card-title>
+                    <!-- <v-card-title>{{ info.name }} </v-card-title> -->
                     <v-expand-transition>
                       <div
                         v-if="hover"
                         class="d-flex transition-fast-in-fast-out white darken-2 v-card--reveal display-3 white--text"
                         style="height: 100%"
                       >
-                        <v-btn v-if="hover" href="/product" class="" outlined
-                          >VIEW</v-btn
+                        <router-link
+                          :to="{ name: 'Product', params: { id: product.id } }"
                         >
+                          <v-btn v-if="hover" outlined>VIEW</v-btn>
+                        </router-link>
                       </div>
                     </v-expand-transition>
                   </v-img>
                   <v-card-text class="text--primary">
                     <div>
-                      <a href="/product" style="text-decoration: none">{{
-                        pro.name
-                      }}</a>
+                      <router-link class="pink--text"
+                          :to="{ name: 'Product', params: { id: product.id } }">
+                        {{ product.title }}
+                      </router-link>
                     </div>
-                    <div>${{ pro.price }}</div>
+                    <div><strong>{{ product.price }} €</strong></div>
+                    <div>
+                      <div><strong class="red--text">{{ product.description }}</strong></div>
+                      <br />
+                      <v-btn
+                        @click="add_cart(product)"
+                        class="btn-cart"
+                        elevation="2"
+                        rounded
+                        small
+                        color="#b4975a"
+                      >
+                        <i class="fas fa-shopping-cart"> ADD TO CART</i>
+                      </v-btn>
+                    </div>
                   </v-card-text>
                 </v-card>
               </v-hover>
@@ -79,6 +111,51 @@
     </v-container>
   </v-app>
 </template>
+
+<script>
+
+export default {
+
+  data: () => ({
+    message: "SHOP",
+    products: null,
+    loading: true,
+    errored: false,
+    items: [
+      {
+        id: 1,
+        name: "Category",
+        children: [
+          { id: 2, name: "Humour" },
+          { id: 3, name: "Jazz" },
+          { id: 4, name: "Pop" },
+          { id: 5, name: "Rock" },
+        ],
+      },
+    ],
+  }),
+  mounted() {
+    this.$axios
+      .get("http://localhost:3000/products")
+      .then((response) => {
+        this.products = response.data;
+      })
+      .catch((error) => {
+        console.log(error);
+        this.errored = true;
+      })
+      .finally(() => (this.loading = false));
+  },
+  methods: {
+    add_cart(product) {
+      this.$store.state.cart_count += 1;
+      this.$store.state.cart.push(product);
+      console.log(this.$store.state.cart);
+    },
+  },
+};
+</script>
+
 <style>
 .v-card--reveal {
   align-items: center;
@@ -89,49 +166,3 @@
   width: 100%;
 }
 </style>
-<script>
-export default {
-  data: () => ({
-    range: [0, 10000],
-    select: "Popularity",
-    options: [
-      "Default",
-      "Popularity",
-      "Relevance",
-      "Price: Low to High",
-      "Price: High to Low",
-    ],
-    page: 1,
-    breadcrums: [
-      {
-        text: "Home",
-        disabled: false,
-        href: "breadcrumbs_home",
-      },
-      {
-        text: "Clothing",
-        disabled: false,
-        href: "breadcrumbs_clothing",
-      },
-      {
-        text: "T-Shirts",
-        disabled: true,
-        href: "breadcrumbs_shirts",
-      },
-    ],
-    min: 0,
-    max: 10000,
-    items: [
-      {
-        id: 2,
-        name: "Concert",
-        children: [
-          { id: 2, name: "Pop" },
-          { id: 3, name: "Rock" },
-          { id: 4, name: "Festival" },
-        ],
-      },
-    ],
-  }),
-};
-</script>
