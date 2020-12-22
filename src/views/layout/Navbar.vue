@@ -36,10 +36,10 @@
           <v-icon>mdi-bell</v-icon>
         </v-badge>
       </v-btn>
-      <v-btn v-on="on" href="/cart" icon>
-        <v-badge content="" value="" color="orange" overlap>
+      <v-btn v-on="on" icon><router-link :to="{ name: 'Cart'}" class="white--text" >
+        <v-badge> 
           <v-icon>mdi-cart</v-icon>
-        </v-badge>
+        </v-badge></router-link>
       </v-btn>
     </v-app-bar>
     <v-content>
@@ -88,6 +88,16 @@ export default {
       ],
       activeBtn: 1,
     };
+  },
+  computed: {
+    cartcount() {
+      return this.$store.state.cart_count;
+    },
+  },
+  methods: {
+   go_to_cart() {
+      this.$router.push("/cart");
+    },
   },
 };
 </script>

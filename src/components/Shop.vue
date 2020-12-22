@@ -1,7 +1,6 @@
 <template>
   <v-app>
-    <v-container class="pt-12">
-    </v-container>
+    <v-container class="pt-12"> </v-container>
     <v-container>
       <div class="row">
         <div class="col-md-3 col-sm-3 col-xs-12">
@@ -61,8 +60,7 @@
                     class="white--text align-end"
                     :aspect-ratio="16 / 9"
                     height="400px"
-                 
-                    src="https://media.senscritique.com/media/000006825150/source_big/Tout_sur_Jamel.jpg"
+                    :src="product.img"
                   >
                     <!-- <v-card-title>{{ info.name }} </v-card-title> -->
                     <v-expand-transition>
@@ -81,14 +79,24 @@
                   </v-img>
                   <v-card-text class="text--primary">
                     <div>
-                      <router-link class="pink--text"
-                          :to="{ name: 'Product', params: { id: product.id } }">
+                      <router-link
+                        class="black--text"
+                        :to="{ name: 'Product', params: { id: product.id } }"
+                      >
                         {{ product.title }}
                       </router-link>
                     </div>
-                    <div><strong>{{ product.price }} €</strong></div>
                     <div>
-                      <div><strong class="red--text">{{ product.description }}</strong></div>
+                      <strong class="red--text"> {{ product.price }} €</strong>
+                    </div>
+                    <div>
+                      <div>
+                        <strong class="orange--text">{{
+                          product.description
+                        }}</strong
+                        ><br />
+                        {{ product.date_posted }}
+                      </div>
                       <br />
                       <v-btn
                         @click="add_cart(product)"
@@ -98,7 +106,9 @@
                         small
                         color="#b4975a"
                       >
-                        <i class="fas fa-shopping-cart"> ADD TO CART</i>
+                        <i class="fas fa-shopping-cart"
+                          ><strong>RESERVATION</strong></i
+                        >
                       </v-btn>
                     </div>
                   </v-card-text>
@@ -113,9 +123,7 @@
 </template>
 
 <script>
-
 export default {
-
   data: () => ({
     message: "SHOP",
     products: null,
