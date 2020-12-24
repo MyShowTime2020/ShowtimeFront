@@ -165,7 +165,11 @@
 
 <script>
 /* eslint-disable */
+import axios from "axios";
+import { server } from "../helper";
+import router from "../router";
 export default {
+  name: "Login",
   computed: {
     passwordMatch() {
       return () => this.password === this.verify || "Password must match";
@@ -175,6 +179,9 @@ export default {
     validate() {
       if (this.$refs.loginForm.validate()) {
         // submit form to server/API here...
+        axios.post(`${server.baseURL}/user/login`, data).then(data => {
+        router.push({ name: "home" });
+      });
       }
     },
     reset() {

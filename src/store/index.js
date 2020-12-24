@@ -11,6 +11,12 @@ export default new Vuex.Store({
     products: [],
     cart_count: 0,
     cart: [],
+    profil: "",
+    categories: [],
+    message: "",
+    created: false,
+    errored: false,
+    authenticated: false,
   },
   getters: {
     SET_Products(state, products) {
@@ -21,7 +27,26 @@ export default new Vuex.Store({
       state.products.push(products);
     },
   },
-  mutations: {},
+  mutations: {
+    SET_Profil(state, profil) {
+      state.profil = profil;
+    },
+    AUTH(state, auth) {
+      state.authenticated = auth;
+    },
+    SUCCES(state, message) {
+      state.message = message;
+      state.created = true;
+    },
+    ERROR(state, message) {
+      state.message = message;
+      state.errored = true;
+    },
+    LOGOUT(state) {
+      state.profil = "";
+      state.authenticated = false;
+    },
+  },
   actions: {
     loadProducts({ commit }) {
       axios.get(`http://localhost:3000/products`, {}).then((response) => {
