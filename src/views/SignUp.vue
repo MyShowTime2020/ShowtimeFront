@@ -56,7 +56,6 @@ export default {
   methods: {
     signup() {
       let body = JSON.stringify(this.form);
-      console.log(body);
       this.axios
         .post(`${server.baseURL}/user`, body, {
           headers: {
@@ -64,7 +63,6 @@ export default {
           }
         })
         .then((response) => {
-          console.log(response);
           if (response.status == 201) {
             this.$store.commit("SET_Profil", response.data.data);
             this.$store.commit("AUTH", true);

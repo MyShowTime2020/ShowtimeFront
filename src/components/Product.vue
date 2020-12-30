@@ -207,7 +207,7 @@ export default {
     add_cart() {
       this.$store.state.cart_count += 1;
       this.$store.state.cart.push(this.product);
-      console.log(this.$store.state.cart);
+      
     }
   },
   mounted() {
@@ -217,20 +217,12 @@ export default {
         .then((response) => {
           this.product = response.data;
         })
-        .catch((error) => {
-          console.log(error);
-          this.errored = true;
-        })
         .finally(() => (this.loading = false));
     }
     this.$axios
       .get("http://localhost:3000/products")
       .then((response) => {
         this.products = response.data;
-      })
-      .catch((error) => {
-        console.log(error);
-        this.errored = true;
       })
       .finally(() => (this.loading = false));
   }

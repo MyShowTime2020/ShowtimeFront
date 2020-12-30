@@ -59,7 +59,6 @@ export default new Vuex.Store({
           { title: "foo", body: "bar", userId: 1 }
         )
       }).then((response) => {
-        console.log(response);
         this.commit("UPDATE_Products", response.data);
       });
     }

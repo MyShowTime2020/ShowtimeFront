@@ -148,17 +148,12 @@ export default {
       .then((response) => {
         this.products = response.data;
       })
-      .catch((error) => {
-        console.log(error);
-        this.errored = true;
-      })
       .finally(() => (this.loading = false));
   },
   methods: {
     add_cart(product) {
       this.$store.state.cart_count += 1;
       this.$store.state.cart.push(product);
-      console.log(this.$store.state.cart);
     }
   }
 };

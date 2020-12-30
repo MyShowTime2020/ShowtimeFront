@@ -117,7 +117,6 @@ export default {
         })
         .then((response) => {
           if (response.status == 200) {
-            console.log(response.status);
             this.$store.commit("SET_Profil", response.data.data);
             this.$store.commit("AUTH", true);
             this.$router.push("/dashboard");
