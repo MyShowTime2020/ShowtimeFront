@@ -15,43 +15,43 @@ const routes = [
   {
     path: "/",
     name: "Home",
-    component: Home,
+    component: Home
   },
   {
     path: "/dashboard",
     name: "Dashboard",
-    component: Dashboard,
+    component: Dashboard
   },
   {
     path: "/signin",
     name: "SignIn",
-    component: SignIn,
+    component: SignIn
   },
   {
     path: "/signup",
     name: "SignUp",
-    component: SignUp,
+    component: SignUp
   },
   {
     path: "/login",
     name: "Login",
-    component: Login,
+    component: Login
   },
   {
     path: "/shop",
     name: "Shop",
-    component: Shop,
+    component: Shop
   },
   {
     path: "/product/:id",
     component: Product,
-    name: "Product",
+    name: "Product"
   },
   {
     path: "/cart",
     component: Cart,
-    name: "Cart",
-  },
+    name: "Cart"
+  }
 ];
 
 const router = new VueRouter({ routes });

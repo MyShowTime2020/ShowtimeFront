@@ -5,24 +5,28 @@
         <v-card-title>Je m'inscris</v-card-title>
         <v-card-text>
           <v-form>
-            <v-text-field v-model="form.fullName" label="Nom d'utilisateur" prepend-icon="mdi-account-circle" />
-          </v-form>
-        </v-card-text>
-        <v-card-text>
-          <v-form>
-            <v-text-field v-model="form.email" :rules="emailRules" label="Adresse électronique" />
+            <v-text-field
+              v-model="form.fullName"
+              label="Nom d'utilisateur"
+              prepend-icon="mdi-account-circle"
+            />
           </v-form>
         </v-card-text>
         <v-card-text>
           <v-form>
             <v-text-field
-              v-model="form.password"
-              label="Mot de passe"
-            >
+              v-model="form.email"
+              :rules="emailRules"
+              label="Adresse électronique"
+            />
+          </v-form>
+        </v-card-text>
+        <v-card-text>
+          <v-form>
+            <v-text-field v-model="form.password" label="Mot de passe">
               <template v-slot:append>
                 <v-tooltip bottom>
-                  <template>
-                  </template>
+                  <template> </template>
                 </v-tooltip>
               </template>
             </v-text-field>
@@ -45,19 +49,19 @@ export default {
       form: {
         fullName: "",
         email: "",
-        password: "",
-      },
+        password: ""
+      }
     };
   },
   methods: {
     signup() {
       let body = JSON.stringify(this.form);
-      console.log(body)
+      console.log(body);
       this.axios
         .post(`${server.baseURL}/user`, body, {
           headers: {
-            "Content-type": "application/json",
-          },
+            "Content-type": "application/json"
+          }
         })
         .then((response) => {
           console.log(response);
@@ -67,14 +71,16 @@ export default {
             this.$store.commit("SUCCES", response.data.message);
             this.$router.push("/dashboard");
           } else {
-            throw new Error("un problème est survenu lors de l'enregistrement de votre compte");
+            throw new Error(
+              "un problème est survenu lors de l'enregistrement de votre compte"
+            );
           }
         })
         .catch((error) => {
           this.$store.commit("ERROR", error.message);
         });
-    },
-  },
+    }
+  }
 };
 </script>
 

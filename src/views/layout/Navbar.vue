@@ -24,15 +24,15 @@
       <v-spacer />
 
       <router-link
-        style="text-decoration: none;"
+        style="text-decoration: none"
         class="nav-item nav-link"
         :to="{ name: 'SignIn' }"
       >
         <v-btn icon> <v-icon>mdi-account-circle</v-icon></v-btn>
       </router-link>
 
-       <router-link
-        style="text-decoration: none;"
+      <router-link
+        style="text-decoration: none"
         class="nav-item nav-link"
         :to="{ name: 'SignUp' }"
       >
@@ -44,10 +44,12 @@
           <v-icon>mdi-bell</v-icon>
         </v-badge>
       </v-btn>
-      <v-btn v-on="on" icon><router-link :to="{ name: 'Cart'}" class="white--text" >
-        <v-badge> 
-          <v-icon>mdi-cart</v-icon>
-        </v-badge></router-link>
+      <v-btn v-on="on" icon
+        ><router-link :to="{ name: 'Cart' }" class="white--text">
+          <v-badge>
+            <v-icon>mdi-cart</v-icon>
+          </v-badge></router-link
+        >
       </v-btn>
     </v-app-bar>
     <v-content>
@@ -65,7 +67,7 @@
             <v-list-item v-for="(item, index) in items" :key="index"
               ><router-link
                 class="orange--text"
-                style="text-decoration: none;"
+                style="text-decoration: none"
                 :to="{ name: 'Shop' }"
                 >{{ item.title }}</router-link
               >
@@ -88,24 +90,24 @@ export default {
   data() {
     return {
       items: [
-        { title: "Spectacles" },
+        { title: "Spectacles" }
         /*   { title: "" },
         { title: "" },
         { title: "" },
         { title: "" }, */
       ],
-      activeBtn: 1,
+      activeBtn: 1
     };
   },
   computed: {
     cartcount() {
       return this.$store.state.cart_count;
-    },
+    }
   },
   methods: {
-   go_to_cart() {
+    go_to_cart() {
       this.$router.push("/cart");
-    },
-  },
+    }
+  }
 };
 </script>
