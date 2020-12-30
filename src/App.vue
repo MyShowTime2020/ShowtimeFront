@@ -20,7 +20,32 @@ export default {
 
   data: () => ({
     //
-  })
+  }),
+
+  mounted() {
+    if (localStorage.getItem("$store.state.cart")) {
+      try {
+        this.$store.state.cart = JSON.parse(localStorage.getItem("$store.state.cart"));
+      } catch (e) {
+        localStorage.removeItem("$store.state.cart");
+      }
+    }
+    if (localStorage.getItem("$store.state.cart_count")) {
+      try {
+        this.$store.state.cart_count = JSON.parse(localStorage.getItem("$store.state.cart_count"));
+      } catch (e) {
+        localStorage.removeItem("$state.state.cart_count");
+      }
+    }
+    // let profil = this.getCookie("profil");
+    // let auth = false;
+    // if (profil !== "") {
+    //   profil = JSON.parse(profil);
+    //   auth = true;
+    // }
+    // this.$store.commit("SET_Profil", profil);
+    // this.$store.commit("AUTH", auth);
+  }
 };
 </script>
 

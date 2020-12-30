@@ -137,10 +137,10 @@ export default {
           { id: 2, name: "Humour" },
           { id: 3, name: "Jazz" },
           { id: 4, name: "Pop" },
-          { id: 5, name: "Rock" },
-        ],
-      },
-    ],
+          { id: 5, name: "Rock" }
+        ]
+      }
+    ]
   }),
   mounted() {
     this.$axios
@@ -159,8 +159,8 @@ export default {
       this.$store.state.cart_count += 1;
       this.$store.state.cart.push(product);
       console.log(this.$store.state.cart);
-    },
-  },
+    }
+  }
 };
 </script>
 

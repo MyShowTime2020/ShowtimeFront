@@ -11,6 +11,12 @@ export default new Vuex.Store({
     products: [],
     cart_count: 0,
     cart: [],
+    profil: "",
+    categories: [],
+    message: "",
+    created: false,
+    errored: false,
+    authenticated: false
   },
   getters: {
     SET_Products(state, products) {
@@ -19,9 +25,28 @@ export default new Vuex.Store({
 
     UPDATE_Products(state, products) {
       state.products.push(products);
-    },
+    }
   },
-  mutations: {},
+  mutations: {
+    SET_Profil(state, profil) {
+      state.profil = profil;
+    },
+    AUTH(state, auth) {
+      state.authenticated = auth;
+    },
+    SUCCES(state, message) {
+      state.message = message;
+      state.created = true;
+    },
+    ERROR(state, message) {
+      state.message = message;
+      state.errored = true;
+    },
+    LOGOUT(state) {
+      state.profil = "";
+      state.authenticated = false;
+    }
+  },
   actions: {
     loadProducts({ commit }) {
       axios.get(`http://localhost:3000/products`, {}).then((response) => {
@@ -29,15 +54,15 @@ export default new Vuex.Store({
       });
     },
     changeProducts() {
-      axios
-        .post("http://localhost:3000/products", {
-          body: JSON.stringify({ title: "foo", body: "bar", userId: 1 }),
-        })
-        .then((response) => {
-          console.log(response);
-          this.commit("UPDATE_Products", response.data);
-        });
-    },
+      axios.post("http://localhost:3000/products", {
+        body: JSON.stringify(
+          { title: "foo", body: "bar", userId: 1 }
+        )
+      }).then((response) => {
+        console.log(response);
+        this.commit("UPDATE_Products", response.data);
+      });
+    }
   },
-  modules: {},
+  modules: {}
 });

@@ -30,8 +30,8 @@
             <p class="subtitle-1 font-weight-thin">
               {{ product.description }}
             </p>
-                 <p class="orange--text subtitle-1 font-weight-thin">
-             <strong>{{ product.date_posted }}</strong>
+            <p class="orange--text subtitle-1 font-weight-thin">
+              <strong>{{ product.date_posted }}</strong>
             </p>
             <br />
             <p>
@@ -201,14 +201,14 @@
 export default {
   data: () => ({
     product: [],
-    rating: 4.5,
+    rating: 4.5
   }),
   methods: {
     add_cart() {
       this.$store.state.cart_count += 1;
       this.$store.state.cart.push(this.product);
       console.log(this.$store.state.cart);
-    },
+    }
   },
   mounted() {
     {
@@ -233,8 +233,7 @@ export default {
         this.errored = true;
       })
       .finally(() => (this.loading = false));
-  },
+  }
 };
 </script>
 
-<style></style>

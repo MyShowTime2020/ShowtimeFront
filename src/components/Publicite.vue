@@ -1,22 +1,15 @@
 <template>
-   <v-container>
-      <v-row no-gutters>
-        <v-col :cols="12">
-          <v-card-text
-            class=""
-            tile
-            outlined
+  <v-container>
+    <v-row no-gutters>
+      <v-col :cols="12">
+        <v-card-text class="" tile outlined>
+          <v-card-title style="text-align: center" class="subheading"
+            ><strong>Derniers Spectacles</strong></v-card-title
           >
-            <v-card-title style="text-align: center;" class="subheading "><strong>Derniers Spectacles</strong></v-card-title>
-            <div class="row">
-              <div class="col-12 col-md-3 col-sm-6 col-xs-6 text-center">
-                <v-hover
-                  v-slot:default="{ hover }"
-                  open-delay="200"
-                >
-                  <v-card
-                    :elevation="hover ? 16 : 2"
-                >
+          <div class="row">
+            <div class="col-12 col-md-3 col-sm-6 col-xs-6 text-center">
+              <v-hover v-slot:default="{ hover }" open-delay="200">
+                <v-card :elevation="hover ? 16 : 2">
                   <v-img
                     class="white--text align-end"
                     height="500px"
@@ -41,16 +34,11 @@
                     </v-btn>
                   </div>
                 </v-card>
-                </v-hover>
-              </div>
-              <div class="col-12 col-md-3 col-sm-6 col-xs-6 text-center" >
-                <v-hover
-                  v-slot:default="{ hover }"
-                  open-delay="200"
-                >
-                  <v-card
-                    :elevation="hover ? 16 : 2"
-                  >
+              </v-hover>
+            </div>
+            <div class="col-12 col-md-3 col-sm-6 col-xs-6 text-center">
+              <v-hover v-slot:default="{ hover }" open-delay="200">
+                <v-card :elevation="hover ? 16 : 2">
                   <v-img
                     class="white--text align-end"
                     height="500px"
@@ -65,25 +53,16 @@
                   </v-card-text>
 
                   <div class="text-center">
-                    <v-btn href="/shop"
-                      class="ma-2"
-                      outlined
-                      color="orange"
-                    >
+                    <v-btn href="/shop" class="ma-2" outlined color="orange">
                       RESERVER
                     </v-btn>
                   </div>
                 </v-card>
-                </v-hover>
-              </div>
-              <div class="col-12 col-md-3 col-sm-6 col-xs-6 text-center" >
-                <v-hover
-                  v-slot:default="{ hover }"
-                  open-delay="200"
-                >
-                  <v-card
-                    :elevation="hover ? 16 : 2"
-                  >
+              </v-hover>
+            </div>
+            <div class="col-12 col-md-3 col-sm-6 col-xs-6 text-center">
+              <v-hover v-slot:default="{ hover }" open-delay="200">
+                <v-card :elevation="hover ? 16 : 2">
                   <v-img
                     class="white--text align-end"
                     height="500px"
@@ -98,7 +77,8 @@
                   </v-card-text>
 
                   <div class="text-center">
-                    <v-btn href="/shop"
+                    <v-btn
+                      href="/shop"
                       class="ma-2"
                       outlined
                       color="light-blue darken-4"
@@ -107,16 +87,11 @@
                     </v-btn>
                   </div>
                 </v-card>
-                </v-hover>
-              </div>
-              <div class="col-12 col-md-3 col-sm-6 col-xs-6 text-center" >
-                <v-hover
-                  v-slot:default="{ hover }"
-                  open-delay="200"
-                >
-                  <v-card
-                    :elevation="hover ? 16 : 2"
-                  >
+              </v-hover>
+            </div>
+            <div class="col-12 col-md-3 col-sm-6 col-xs-6 text-center">
+              <v-hover v-slot:default="{ hover }" open-delay="200">
+                <v-card :elevation="hover ? 16 : 2">
                   <v-img
                     class="white--text align-end"
                     height="500px"
@@ -131,30 +106,23 @@
                   </v-card-text>
 
                   <div class="text-center">
-                    <v-btn href="/shop"
-                      class="ma-2"
-                      outlined
-                      color="orange"
-                    >
+                    <v-btn href="/shop" class="ma-2" outlined color="orange">
                       RESERVER
                     </v-btn>
                   </div>
                 </v-card>
-                </v-hover>
-              </div>
+              </v-hover>
             </div>
-          </v-card-text>
-        </v-col>
-      </v-row>
-    </v-container>
+          </div>
+        </v-card-text>
+      </v-col>
+    </v-row>
+  </v-container>
 </template>
 
 <script>
-export default {
-
-}
+export default {};
 </script>
 
 <style>
-
 </style>
