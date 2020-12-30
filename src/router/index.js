@@ -7,7 +7,7 @@ import Product from "../components/Product.vue";
 import Cart from "../components/Cart.vue";
 import SignIn from "../views/SignIn.vue";
 import SignUp from "../views/SignUp.vue";
-import Dashboard from "../views/Dashboard.vue";
+
 
 Vue.use(VueRouter);
 
@@ -17,11 +17,7 @@ const routes = [
     name: "Home",
     component: Home
   },
-  {
-    path: "/dashboard",
-    name: "Dashboard",
-    component: Dashboard
-  },
+  
   {
     path: "/signin",
     name: "SignIn",

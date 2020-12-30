@@ -1,6 +1,6 @@
 <template>
   <v-container>
-    <Affiche class="pb-12" />
+    <Ticket class="pb-12" />
     <v-divider class="pt-12"></v-divider>
     <v-responsive :aspect-ratio="16 / 9">
       <v-timeline align-center :dense="$vuetify.breakpoint.smAndDown">
@@ -39,19 +39,19 @@
       </v-timeline>
     </v-responsive>
     <v-divider></v-divider>
-    <Publicite class="pt-12 pb-12"/>
+    <Sales class="pt-12 pb-12"/>
   </v-container>
 </template>
 
 <script>
 /* eslint-disable */
-import Affiche from "./Affiche";
-import Publicite from "./Publicite";
+import Ticket from "./Ticket";
+import Sales from "./Sales";
 
 export default {
   components: {
-    Affiche,
-    Publicite
+    Ticket,
+    Sales
   },
   data: () => ({
     items: [
