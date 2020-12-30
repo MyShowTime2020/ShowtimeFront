@@ -2,13 +2,13 @@
   <v-container>
     <v-card>
       <form @submit.prevent="checkform">
-        <v-card-title>Connectez-vous</v-card-title>
+        <v-card-title>Sign In</v-card-title>
         <v-card-text>
           <v-form>
             <v-text-field
               v-model="email"
               :rules="emailRules"
-              label="Entrez votre adresse électronique"
+              label="Enter E-mail"
               prepend-icon="mdi-email"
             />
             <span>{{ mailerror }}</span>
@@ -20,7 +20,7 @@
               :type="showPassword ? 'text' : 'password'"
               :rules="passwordRules"
               v-model="password"
-              label="Entrez votre mot de passe"
+              label="Enter password"
               prepend-icon="mdi-lock"
             >
               <template v-slot:append>
@@ -35,8 +35,7 @@
                     >
                   </template>
                   <span
-                    >Attention en cliquant sur cette icone votre mot de passe
-                    sera visible</span
+                    >Attention your password is visible</span
                   >
                 </v-tooltip>
               </template>
@@ -45,7 +44,7 @@
           </v-form>
         </v-card-text>
         <v-card-actions>
-          <v-btn type="submit" color="info">Me connecter</v-btn>
+          <v-btn type="submit" color="info">Login</v-btn>
         </v-card-actions>
       </form>
     </v-card>
@@ -65,11 +64,11 @@ export default {
       eyestatus: "mdi-eye-off",
       showPassword: false,
       emailRules: [
-        (v) => /.+@.+/.test(v) || "Une adresse mail doit contenir un @",
+        (v) => /.+@.+/.test(v) || "The e-mail must contain @",
       ],
       passwordRules: [
         (v) =>
-          v.length > 6 || "Le mot de passe doit contenir plus de 6 caractères"
+          v.length > 6 || "The password must be more than 6 characters"
       ]
     };
   },
@@ -89,16 +88,16 @@ export default {
     },
     checkform() {
       if (this.email == null || this.email == "") {
-        this.mailerror = "Veuillez saisir une adresse électronique";
+        this.mailerror = "Please enter your e-mail";
       } else if (!this.validEmail(this.email)) {
-        this.errormail = "Merci de saisir une adresse mail valide";
+        this.errormail = "You must enter a valid e-mail";
       } else if (
         this.password == null ||
         this.password == "" ||
         this.password.length < 6
       ) {
         this.passerror =
-          "Le mot de passe doit contenir au miimum 6 charactères";
+          "The password must be at least 6 characters";
       } else {
         let form = {
           email: this.email,
@@ -122,7 +121,7 @@ export default {
             this.$router.push("/dashboard");
           } else {
             throw new Error(
-              "un problème est survenu lors de l'enregistrement de votre compte"
+              "Error during the creation of you account"
             );
           }
         })

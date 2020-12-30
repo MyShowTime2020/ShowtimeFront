@@ -37,14 +37,6 @@ export default {
         localStorage.removeItem("$state.state.cart_count");
       }
     }
-    // let profil = this.getCookie("profil");
-    // let auth = false;
-    // if (profil !== "") {
-    //   profil = JSON.parse(profil);
-    //   auth = true;
-    // }
-    // this.$store.commit("SET_Profil", profil);
-    // this.$store.commit("AUTH", auth);
   }
 };
 </script>

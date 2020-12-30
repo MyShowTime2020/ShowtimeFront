@@ -2,12 +2,12 @@
   <v-container>
     <v-card>
       <form @submit.prevent="signup">
-        <v-card-title>Je m'inscris</v-card-title>
+        <v-card-title>Create Account</v-card-title>
         <v-card-text>
           <v-form>
             <v-text-field
               v-model="form.fullName"
-              label="Nom d'utilisateur"
+              label="User Name"
               prepend-icon="mdi-account-circle"
             />
           </v-form>
@@ -17,13 +17,13 @@
             <v-text-field
               v-model="form.email"
               :rules="emailRules"
-              label="Adresse électronique"
+              label="E-mail"
             />
           </v-form>
         </v-card-text>
         <v-card-text>
           <v-form>
-            <v-text-field v-model="form.password" label="Mot de passe">
+            <v-text-field v-model="form.password" label="Password">
               <template v-slot:append>
                 <v-tooltip bottom>
                   <template> </template>
@@ -33,7 +33,7 @@
           </v-form>
         </v-card-text>
         <v-card-actions>
-          <v-btn type="submit" color="success">S'inscrire</v-btn>
+          <v-btn type="submit" color="success">Create account</v-btn>
         </v-card-actions>
       </form>
     </v-card>
@@ -70,7 +70,7 @@ export default {
             this.$router.push("/dashboard");
           } else {
             throw new Error(
-              "un problème est survenu lors de l'enregistrement de votre compte"
+              "Error during the creation of you account"
             );
           }
         })

@@ -46,7 +46,7 @@
               small
               color="#b4975a"
             >
-              <i class="fas fa-shopping-cart"><strong>RESERVER</strong></i>
+              <i class="fas fa-shopping-cart"><strong>RESERVATION</strong></i>
             </v-btn>
           </div>
         </div>

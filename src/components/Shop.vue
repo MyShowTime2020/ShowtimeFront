@@ -62,7 +62,6 @@
                     height="400px"
                     :src="product.img"
                   >
-                    <!-- <v-card-title>{{ info.name }} </v-card-title> -->
                     <v-expand-transition>
                       <div
                         v-if="hover"

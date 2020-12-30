@@ -4,7 +4,7 @@
       <v-col :cols="12">
         <v-card-text class="" tile outlined>
           <v-card-title style="text-align: center" class="subheading"
-            ><strong>Derniers Spectacles</strong></v-card-title
+            ><strong>Last Minute Spectacles</strong></v-card-title
           >
           <div class="row">
             <div class="col-12 col-md-3 col-sm-6 col-xs-6 text-center">
@@ -30,7 +30,7 @@
                       outlined
                       color="light-blue darken-4"
                     >
-                      RESERVER
+                      RESERVATION
                     </v-btn>
                   </div>
                 </v-card>
@@ -54,7 +54,7 @@
 
                   <div class="text-center">
                     <v-btn href="/shop" class="ma-2" outlined color="orange">
-                      RESERVER
+                      RESERVATION
                     </v-btn>
                   </div>
                 </v-card>
@@ -83,7 +83,7 @@
                       outlined
                       color="light-blue darken-4"
                     >
-                      RESERVER
+                      RESERVATION
                     </v-btn>
                   </div>
                 </v-card>
@@ -107,7 +107,7 @@
 
                   <div class="text-center">
                     <v-btn href="/shop" class="ma-2" outlined color="orange">
-                      RESERVER
+                      RESERVATION
                     </v-btn>
                   </div>
                 </v-card>
